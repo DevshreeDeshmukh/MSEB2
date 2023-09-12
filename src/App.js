@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import "./App.css";
+import Form from "./Components/Form";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import { ThemeProvider, styled } from "styled-components";
+import { GlobalStyle } from "./Components/GlobalStyle";
 function App() {
+  const theme={
+    colors : {
+      heading: "#ff0000",
+      footer_bg:"#0a1435"
+    },
+    media: {
+      mobile:"768px",
+      tab:"998px"
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
+      <BrowserRouter>
+      <Header/>
+      <div className="App">
+        <Routes>
+          <Route path="/Form" element={<Form/>}/>
+        </Routes>
+      </div>
+      <Footer/>
+      </BrowserRouter>
+      </ThemeProvider>
+
+    
+    
+    
   );
 }
+
+
 
 export default App;
