@@ -3,40 +3,22 @@ import { useState } from "react";
 // import { makeStyles } from '@mui/material';
 import { Typography, Card, CardContent, Grid, Select,MenuItem,
   TextField,FormControl,InputLabel } from "@mui/material";
-// import "./App.css";
-import { Table } from "./Table";
-import { MeterTable } from "./MeterTable";
-import { CurrentVoltTable } from "./CurrentVoltTable";
 import { Button } from '../styles/Button';
-import Other from './Other';
-import Inspection from './Inspection';
-import Form_Phase1  from './Form_Phase1';
-function Form(){
-
-// Select Values
-const [meterin, setMeterIn] = useState('');
+import { CurrentVoltTablePhase1 } from './CurrentVoltTablePhase1';
+import { ConnectedLoadPhase1 } from './ConnectedLoadPhase1';
+const Form_Phase1 = () => {
+    const [meterin, setMeterIn] = useState('');
 
 const handleChangeYN = (event) => {
   setMeterIn(event.target.value);
 };
 
-const [externalct, setExternalct] = useState('');
-
-const handleChangeYN1 = (event) => {
-  setExternalct(event.target.value);
-};
-
-    return(
-    
-<React.Fragment>
-<div>
-      
-
-      <Card style={{maxWidth:"500",padding:"40px 5px"}}>
+  return (
+    <>
+        <Card style={{maxWidth:"500",padding:"40px 5px"}}>
         <CardContent>
-        <form>
-        {/*<Typography gutterBottom variant="h5">Contact Us</Typography>*/}
-          <Grid container spacing={2}>
+            <form action="">
+            <Grid container spacing={2}>
           <Grid xs={4} sm={3} item>
               <TextField label="Serial Number" placeholder=" " name="serialNumber"varient="outlined" fullWidth required />
             </Grid>
@@ -54,7 +36,7 @@ const handleChangeYN1 = (event) => {
             <Grid xs={12} sm={6} item  >
               <TextField label="Consumer Number"  type="number"placeholder="Enter Consumer Number"  name="consumerNumber"varient="outlined" fullWidth required />
             </Grid>
-           
+            {/* buNumber; */}
 
             <Grid xs={12} sm={6} item  >
               <TextField label="BU Number"  type="number"placeholder="Enter BU Number"  name="buNumber"varient="outlined" fullWidth required />
@@ -76,7 +58,9 @@ const handleChangeYN1 = (event) => {
               <TextField type="number" label="Mobile Number Of Owner" placeholder="Enter Owner Mobile Number" name="contactNumber" varient="outlined" fullWidth  />
             </Grid>
 
-           
+            {/* <Grid xs={4} sm={3} item>
+              <TextField type="number" label=" Mobile Number Of User" placeholder="Enter User Mobile Number" name="mob_num-user"varient="outlined" fullWidth  />
+            </Grid> */}
 
 
             <Grid xs={4} sm={3} item>
@@ -107,7 +91,7 @@ const handleChangeYN1 = (event) => {
             </Grid>
 
              </Grid>
-
+             
             <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Meter Details</Typography>
             <Grid container spacing={2}>
         <Grid xs={12} sm={6} item>
@@ -127,7 +111,9 @@ const handleChangeYN1 = (event) => {
           <Grid xs={12} sm={6} item>
           <TextField label="Meter Serial No. As per Bill" placeholder="Enter Meter Serial No. As per Bill"  name="meterSerialNumber"variant="outlined" fullWidth required/>
           </Grid>
-          
+          {/* <Grid xs={12} sm={6} item>
+          <TextField label="Actual Meter Serial No. at Site" placeholder="Enter Actual Meter Serial No. at Site" variant="outlined" fullWidth required/>
+          </Grid> */}
           <Grid xs={12} sm={6} item>
           <TextField label="Meter Make" placeholder="Enter Meter Make" variant="outlined" name="make" fullWidth required/>
           </Grid>
@@ -145,104 +131,35 @@ const handleChangeYN1 = (event) => {
           </Grid>
           <Grid xs={12} sm={6} item>
           <TextField label="Rev, Imp/Wh" placeholder="Enter Rev, Imp/Wh" variant="outlined" name='revImpKwh'fullWidth required/>
+          </Grid> 
           </Grid>
-         
-
-          <Grid xs={12} sm={6} item>
-          <TextField label="meter CT ratio" placeholder="Enter Meter CT Ratio" variant="outlined" name='meterCTRatio'fullWidth required/>
-          </Grid>
-         
-          <Grid xs={12} sm={6} item>
-          <TextField label="MF as per bill" placeholder="Enter Meter Make" variant="outlined" fullWidth required/>
-          </Grid>
-  
-          </Grid>
-          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Meter Reading</Typography>
-          <Grid xs={12} sm={9} item style={{marginBottom:20}}>
-              <MeterTable/>
-          </Grid>
-          <Grid container spacing={2}>
-          
-         
-          <Grid xs={12} sm={6} item>
-          <TextField label="Scale Factor" placeholder="Enter  Scale Factor" variant="outlined" name='scaleFactor' fullWidth required/>
-          </Grid>
-          <Grid xs={12} sm={6} item>
-          <TextField label="Over all MF for units" placeholder="Enter  Over all MF for units" name='overallMFForUnit' variant="outlined" fullWidth required/>
-          </Grid>
-          <Other/>
-          </Grid>
-          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Current and Volt Measurement</Typography>
-          
+          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Current and Volt measurement</Typography>
           <Grid xs={12} sm={9} item>
-            <CurrentVoltTable/>
-          </Grid>
-
-          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>XII General Observations</Typography>
-
-
-<Grid container spacing={2}>
-     <Grid xs={4} sm={3} item  >
-           <TextField label="Meter Capacitor is Installed"  placeholder=""  name="capacitorInstalled"varient="outlined" fullWidth required />
-     </Grid>
-
-     <Grid  sm={4} item  >
-           <TextField label="If Yes Whether capacity is adequate or not "  placeholder=""  name="adequateOrNot"varient="outlined" fullWidth required />
-     </Grid>
-
-     <Grid xs={3} sm={2} item  >
-           <TextField label="Meter installed at"  placeholder=""  name="meterInstalledAt"varient="outlined" fullWidth required />
-     </Grid>
-
-     <Grid  xs={4} sm={3} item  >
-           <TextField label="Meter installed at eye sight"  placeholder=""  name="meterInstalledAtEyesight"varient="outlined" fullWidth required />
-     </Grid>
-    
-     <Grid xs={3} sm={2} item  >
-           <TextField label="Other Observation if any"  placeholder=""  name="otherObservations"varient="outlined"  />
-     </Grid>
-
-
-</Grid>
-
-          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Details of Connected Loads</Typography>
+                <CurrentVoltTablePhase1/>
+            </Grid>
+          
+        <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Details of Connected Loads</Typography>
           
 
           
           <Grid xs={12} sm={9} item>
-          
-              <Table/>
+              <ConnectedLoadPhase1/>
               
           </Grid>
           
-          <Grid container spacing={3} style={{marginTop:"20px"}}>
-          <Grid xs={4} sm={3} item  >
-           <TextField label="Whether Meter / Service kept under Observation?"  placeholder=""  name="whetherMeterServiceKeptUnderObservation"varient="outlined" fullWidth required />
-          </Grid>
 
-     <Grid  sm={4} item  >
-           <TextField label="If Yes, Justify"  placeholder=""  name="cap_adequate"varient="outlined" fullWidth required />
-     </Grid>
-     </Grid>
-            <Inspection/>
-
-          <Grid xs={12} item style={{marginTop:"20px"}}>
+            <Grid xs={12}  item  style={{marginTop:"20px"}}>
+                <TextField label="Irrgularaties Observed" placeholder="Enter Observed Irregularities" multiline rows={5} name="irregularitiesObserved" varient="outlined" fullWidth required />
+            </Grid>
+            <Grid xs={12} item style={{marginTop:"20px"}}>
               <Button type="submit" varient="contained" color="primary" fullWidth>Submit</Button>
-          </Grid>
+            </Grid>
         
-          </form>
+            </form>
         </CardContent>
+        </Card>
+    </>
+  )
+}
 
-      </Card>
-      <Form_Phase1 />
-      
-    </div>
-
-
-</React.Fragment>
-
-
-
-    );
-} 
-export default Form;
+export default Form_Phase1

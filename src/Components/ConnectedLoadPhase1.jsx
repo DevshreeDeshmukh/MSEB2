@@ -1,41 +1,38 @@
-import React, { useState } from "react";
-
+import React from 'react';
+import { useState } from 'react';
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import MaterialTable from "material-table";
 import { ThemeProvider, createTheme } from '@mui/material';
 
-export const Table = () => {
+export const ConnectedLoadPhase1 = () => {
   const defaultMaterialTheme = createTheme();
 
   const [tableData,setTableData]=useState([
-    {eqname:"FAN",quantity:"9",capacity:"0.06",munit:"KW",totLoad:".54",loadKW:".54"}
+    {eqname:"Zone 1",nos:"98890",watt:"",totwatt:"142602"}
   ])
 
   const columns=[
     {title:"Equipment Name",field:"eqname"},
-    {title:"Quantity",field:"quantity"},
-    {title:"Capacity",field:"capacity"},
-    {title:"Measurment Unit",field:"munit"},
-    {title:"Total Load",field:"totLoad"},
-    {title:"Load in KW",field:"loadKW"}
+    {title:"Nos.",field:"nos"},
+    {title:"Watt",field:"watt"},
+    {title:"Total Watt",field:"totwatt"},
   ]
   return (
 
-    <div className="Table1">
-       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <ThemeProvider theme={defaultMaterialTheme}>
       <MaterialTable columns={columns} data={tableData} 
       editable={{
         onRowAdd:(newRow)=> new Promise((resolve,reject)=>{
-          newRow.totLoad=Number(newRow.quantity)*Number(newRow.capacity);
-          newRow.loadKW=newRow.totLoad;
+          newRow.totwatt=Number(newRow.nos)*Number(newRow.watt);
           setTableData([...tableData,newRow])
           resolve()
         }),
         onRowUpdate:(newRow,oldRow)=> new Promise((resolve,reject)=>{
           const updatedData=[...tableData];
-          newRow.totLoad=Number(newRow.quantity)*Number(newRow.capacity);
-          newRow.loadKW=newRow.totLoad;
+          newRow.totwatt=Number(newRow.nos)*Number(newRow.watt);
           updatedData[oldRow.tableData.id]=newRow
           
           setTableData(updatedData)
@@ -56,11 +53,9 @@ export const Table = () => {
     //     <thead>
     //             <tr>
     //                 <th>Equipment Name</th>
-    //                 <th>Quantity</th>
-    //                 <th>Capacity</th>
-    //                 <th>Measurment Unit</th>
-    //                 <th>Total Load</th>
-    //                 <th>Load in KW</th>
+    //                 <th>Nos.</th>
+    //                 <th>Watt</th>
+    //                 <th>Total Watt</th>
     //                 <th>Actions</th>
     //             </tr>
     //     </thead>
@@ -69,11 +64,10 @@ export const Table = () => {
     //             rows.map((row,idx)=>{
     //                 return <tr key={idx}>
     //                     <td className="expand">{row.eqname}</td>
-    //                     <td>{row.quantity}</td>
-    //                     <td>{row.capacity}</td>
-    //                     <td >{row.munit}</td>
-    //                     <td>{row.totLoad}</td>
-    //                     <td>{row.loadKW}</td>
+    //                     <td>{row.nos}</td>
+    //                     <td>{row.watt}</td>
+    //                     <td >{row.totwatt}</td>
+                        
     //                     <td >
     //                     <span className='actions'>
             

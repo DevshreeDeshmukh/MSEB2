@@ -3,22 +3,23 @@ import { useState } from 'react';
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import MaterialTable from "material-table";
 import { ThemeProvider, createTheme } from '@mui/material';
-export const CurrentVoltTable = () => {
+export const CurrentVoltTablePhase1 = () => {
   const defaultMaterialTheme = createTheme();
 
   const [tableData,setTableData]=useState([
-    {CVmeasure:"Zone 1",rPhase:"98890",yPhase:"",bPhase:"142602"}
+    {CVmeasure:"Zone 1",current:"98890",voltage:"",frequency:"142602"}
   ])
 
   const columns=[
     {title:"Current and Volt measurement",field:"CVmeasure"},
-    {title:"R phase",field:"rPhase"},
-    {title:"Y phase",field:"yPhase"},
-    {title:"B Phase",field:"bPhase"},
+    {title:"Current",field:"current"},
+    {title:"Voltage",field:"voltage"},
+    {title:"Frequency",field:"frequency"},
   ]
   return (
+
     <div>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <ThemeProvider theme={defaultMaterialTheme}>
       <MaterialTable columns={columns} data={tableData} 
       editable={{
@@ -49,9 +50,9 @@ export const CurrentVoltTable = () => {
     //   <thead>
     //           <tr>
     //               <th>Current and Volt measurement</th>
-    //               <th> R phase</th>
-    //               <th> Y phase</th>
-    //               <th>B Phase</th>
+    //               <th>Current</th>
+    //               <th>Voltage</th>
+    //               <th>Frequency</th>
     //               <th>Actions</th>
     //           </tr>
     //   </thead>
@@ -60,9 +61,9 @@ export const CurrentVoltTable = () => {
     //           rows.map((row,idx)=>{
     //               return <tr key={idx}>
     //                   <td className="expand">{row.CVmeasure}</td>
-    //                   <td>{row.rPhase}</td>
-    //                   <td>{row.yPhase}</td>
-    //                   <td >{row.bPhase}</td>
+    //                   <td>{row.current}</td>
+    //                   <td>{row.voltage}</td>
+    //                   <td >{row.frequency}</td>
     //                   <td >
     //                   <span className='actions'>
           
