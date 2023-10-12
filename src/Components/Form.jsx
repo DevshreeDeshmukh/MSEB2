@@ -17,7 +17,9 @@ function Form(){
 const [meterin, setMeterIn] = useState('');
 
 const handleChangeYN = (event) => {
+  
   setMeterIn(event.target.value);
+  
 };
 
 const [externalct, setExternalct] = useState('');
@@ -25,6 +27,8 @@ const [externalct, setExternalct] = useState('');
 const handleChangeYN1 = (event) => {
   setExternalct(event.target.value);
 };
+
+
 
     return(
     
@@ -121,7 +125,10 @@ const handleChangeYN1 = (event) => {
           required>
           <MenuItem value={"Yes"}>Yes</MenuItem>
           <MenuItem value={"No"}>No</MenuItem>
+        
           </Select>
+          
+
         </FormControl>
         </Grid>
           <Grid xs={12} sm={6} item>
@@ -234,7 +241,7 @@ const handleChangeYN1 = (event) => {
         </CardContent>
 
       </Card>
-      <Form_Phase1 />
+      
       
     </div>
 

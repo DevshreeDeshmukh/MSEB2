@@ -42,7 +42,7 @@ export const CurrentVoltTablePhase1 = () => {
           resolve()
         })
       }}
-      options={{paging:false, actionsColumnIndex:-1}}/>
+      options={{paging:false, actionsColumnIndex:-1,showTitle:false}}/>
       </ThemeProvider>
     </div>
     // <div className="table-wrapper">
