@@ -25,7 +25,7 @@ export const Table = () => {
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <ThemeProvider theme={defaultMaterialTheme}>
       <MaterialTable columns={columns} data={tableData} 
-      
+      title={"Details of Connected Load"}
       editable={{
         onRowAdd:(newRow)=> new Promise((resolve,reject)=>{
           newRow.totLoad=Number(newRow.quantity)*Number(newRow.capacity);
@@ -49,7 +49,7 @@ export const Table = () => {
           resolve()
         })
       }}
-      options={{paging:false, actionsColumnIndex:-1, showTitle:false}}/>
+      options={{paging:false, actionsColumnIndex:-1}}/>
       </ThemeProvider>
     </div>
     // <div className="table-wrapper">

@@ -13,7 +13,6 @@ let totArr=[0,0,0,0,0,0];
     totArr[3]=totArr[3]+totkVA_MD;
     totArr[4]=totArr[4]+totRkVAH;
     totArr[5]=totArr[5]+totpf;
-    console.log(totkWh,totMD_kW,totkVAH,totkVA_MD,totRkVAH,totpf);
 
   }
 
@@ -24,7 +23,6 @@ let totArr=[0,0,0,0,0,0];
     totArr[3]=totArr[3]+totkVA_MD;
     totArr[4]=totArr[4]+totRkVAH;
     totArr[5]=totArr[5]+totpf;
-    console.log(totkWh,totMD_kW,totkVAH,totkVA_MD,totRkVAH,totpf);
   }
 export const MeterTable = () => {
   const defaultMaterialTheme = createTheme();

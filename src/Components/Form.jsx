@@ -210,13 +210,10 @@ const handleChangeYN1 = (event) => {
      </Grid>
 
 
-</Grid>
-
-          <Typography gutterBottom variant="h6" sx={{marginTop:5}}>Details of Connected Loads</Typography>
-          
+</Grid> 
 
           
-          <Grid xs={12} sm={9} item>
+          <Grid xs={12} sm={9} item style={{marginTop:"20px"}}>
           
               <Table/>
               
